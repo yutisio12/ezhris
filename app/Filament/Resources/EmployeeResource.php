@@ -59,7 +59,7 @@ class EmployeeResource extends Resource
             Tables\Columns\TextColumn::make('email')->searchable(),
             Tables\Columns\TextColumn::make('department.name')->sortable(),
             Tables\Columns\TextColumn::make('position.name')->sortable(),
-            Tables\Columns\TextColumn::make('employment_status')->badge()->color(fn(string $status) => match ($status) {
+            Tables\Columns\TextColumn::make('employment_status')->badge()->color(fn($state) => match ($state) {
                 'ACTIVE' => 'success', 'INACTIVE' => 'warning', 'RESIGNED' => 'danger', 'TERMINATED' => 'danger', default => 'gray',
             }),
             Tables\Columns\TextColumn::make('hire_date')->date()->sortable(),
