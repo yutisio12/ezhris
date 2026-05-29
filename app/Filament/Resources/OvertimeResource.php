@@ -41,7 +41,7 @@ class OvertimeResource extends Resource
             Tables\Columns\TextColumn::make('start_time')->dateTime(),
             Tables\Columns\TextColumn::make('end_time')->dateTime(),
             Tables\Columns\TextColumn::make('total_minutes')->label('Minutes'),
-            Tables\Columns\TextColumn::make('status')->badge()->color(fn(string $status) => match ($status) {
+            Tables\Columns\TextColumn::make('status')->badge()->color(fn($state) => match ($state) {
                 'APPROVED' => 'success', 'PENDING' => 'warning', 'REJECTED' => 'danger', 'CANCELLED' => 'gray', default => 'gray',
             }),
             Tables\Columns\TextColumn::make('requested_at')->dateTime()->sortable(),
