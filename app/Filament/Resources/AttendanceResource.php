@@ -43,8 +43,8 @@ class AttendanceResource extends Resource
             Tables\Columns\TextColumn::make('check_out')->dateTime(),
             Tables\Columns\TextColumn::make('late_minutes')->label('Late'),
             Tables\Columns\TextColumn::make('work_minutes')->label('Work'),
-            Tables\Columns\TextColumn::make('attendance_status')->badge()->color(fn(string $status) => match ($status) {
-                'PRESENT' => 'success', 'ABSENT' => 'danger', 'LEAVE' => 'info', 'SICK' => 'warning', 'HOLIDAY' => 'info', 'WEEKEND' => 'gray', 'INCOMPLETE' => 'warning', default => 'gray',
+Tables\Columns\TextColumn::make('attendance_status')->badge()->color(fn($state) => match ($state) {
+                'PRESENT' => 'success', 'ABSENT' => 'danger', 'Late' => 'warning', 'HALF_DAY' => 'warning', 'ON_LEAVE' => 'info', default => 'gray',
             }),
         ])->filters([
             Tables\Filters\Filter::make('attendance_date')->form([
